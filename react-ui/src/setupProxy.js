@@ -1,0 +1,1 @@
+module.exports = app => app.use(require('http-proxy-middleware')('/api', { target: 'http://localhost:3001/' }))
