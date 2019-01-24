@@ -32,7 +32,7 @@ let scrapeArticle = article => {
   
       title = el.find(".blog-title").text().trim(),
 
-      link = el.find(".blog-link").attr('href').slice(2),
+      link = "http://" + el.find(".blog-link").attr('href').slice(2),
 
       dateText = el.find(".blog-date").text(),
       [_, month, day, year] = dateText.match(/(\d+)\/(\d+)\/(\d\d\d\d)/),
@@ -40,7 +40,7 @@ let scrapeArticle = article => {
 
       imgSrc = el.find(".blog-content").find("img").attr('src'),
 
-      image = imgSrc && (imgSrc[0] === '/' ? "www.sugarpub.com" + imgSrc : imgSrc)
+      image = imgSrc && (imgSrc[0] === '/' ? "http://www.sugarpub.com" + imgSrc : imgSrc)
 
   return trimObj({ title, link, date, image })
 }
